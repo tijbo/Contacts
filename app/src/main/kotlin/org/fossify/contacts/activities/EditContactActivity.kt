@@ -823,7 +823,7 @@ class EditContactActivity : ContactActivity() {
                     alpha = 1f
                 }
 
-                setupEventTypePicker(this, event.type)
+                setupEventTypePicker(this, event.type, event.label)
 
                 contactEventRemove.apply {
                     beVisible()
