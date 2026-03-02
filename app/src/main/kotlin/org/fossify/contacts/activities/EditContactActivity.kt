@@ -994,9 +994,9 @@ class EditContactActivity : ContactActivity() {
         }
     }
 
-    private fun setupEventTypePicker(eventHolder: ItemEventBinding, type: Int = DEFAULT_EVENT_TYPE) {
+    private fun setupEventTypePicker(eventHolder: ItemEventBinding, type: Int = DEFAULT_EVENT_TYPE, label: String = "") {
         eventHolder.contactEventType.apply {
-            setText(getEventTextId(type))
+            text = getEventText(type, label)
             setOnClickListener {
                 showEventTypePicker(it as TextView)
             }
