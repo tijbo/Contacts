@@ -1733,7 +1733,8 @@ class EditContactActivity : ContactActivity() {
     private fun getEventTypeId(value: String) = when (value) {
         getString(org.fossify.commons.R.string.anniversary) -> CommonDataKinds.Event.TYPE_ANNIVERSARY
         getString(org.fossify.commons.R.string.birthday) -> CommonDataKinds.Event.TYPE_BIRTHDAY
-        else -> CommonDataKinds.Event.TYPE_OTHER
+        getString(org.fossify.commons.R.string.other) -> CommonDataKinds.Event.TYPE_OTHER
+        else -> CommonDataKinds.Event.TYPE_CUSTOM
     }
 
     private fun getAddressTypeId(value: String) = when (value) {
