@@ -1141,12 +1141,19 @@ class EditContactActivity : ContactActivity() {
         val items = arrayListOf(
             RadioItem(CommonDataKinds.Event.TYPE_ANNIVERSARY, getString(org.fossify.commons.R.string.anniversary)),
             RadioItem(CommonDataKinds.Event.TYPE_BIRTHDAY, getString(org.fossify.commons.R.string.birthday)),
-            RadioItem(CommonDataKinds.Event.TYPE_OTHER, getString(org.fossify.commons.R.string.other))
+            RadioItem(CommonDataKinds.Event.TYPE_OTHER, getString(org.fossify.commons.R.string.other)),
+            RadioItem(CommonDataKinds.Event.TYPE_CUSTOM, getString(org.fossify.commons.R.string.custom))
         )
 
         val currentEventTypeId = getEventTypeId(eventTypeField.value)
         RadioGroupDialog(this, items, currentEventTypeId) {
-            eventTypeField.setText(getEventTextId(it as Int))
+            if (it as Int == CommonDataKinds.Event.TYPE_CUSTOM) {
+                CustomLabelDialog(this) {
+                    eventTypeField.text = it
+                }
+            } else {
+                eventTypeField.text = getEventText(it, "")
+            }
         }
     }
 
