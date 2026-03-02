@@ -228,10 +228,18 @@ abstract class ContactActivity : SimpleActivity() {
         }
     }
 
-    fun getEventTextId(type: Int) = when (type) {
-        Event.TYPE_ANNIVERSARY -> org.fossify.commons.R.string.anniversary
-        Event.TYPE_BIRTHDAY -> org.fossify.commons.R.string.birthday
-        else -> org.fossify.commons.R.string.other
+    fun getEventTypeText(type: Int, label: String): String {
+        return if (type == CommonDataKinds.Event.TYPE_CUSTOM) {
+            label
+        } else {
+            getString(
+                when (type) {
+                    Event.TYPE_ANNIVERSARY -> org.fossify.commons.R.string.anniversary
+                    Event.TYPE_BIRTHDAY -> org.fossify.commons.R.string.birthday
+                    else -> org.fossify.commons.R.string.other
+                }
+            )
+        }
     }
 
     private fun getBigLetterPlaceholder(name: String): Bitmap {
