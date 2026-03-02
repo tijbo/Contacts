@@ -944,11 +944,11 @@ class EditContactActivity : ContactActivity() {
         }
 
         if (contact!!.events.isEmpty()) {
-            val eventHolder = ItemEventBinding.bind(binding.contactEventsHolder.getChildAt(0))
-            eventHolder.apply {
-                setupEventTypePicker(this)
+                val eventHolder = ItemEventBinding.bind(binding.contactEventsHolder.getChildAt(0))
+                eventHolder.apply {
+                    setupEventTypePicker(this, DEFAULT_EVENT_TYPE, "")
+                }
             }
-        }
 
         if (contact!!.groups.isEmpty()) {
             val groupsHolder = ItemEditGroupBinding.bind(binding.contactGroupsHolder.getChildAt(0))
