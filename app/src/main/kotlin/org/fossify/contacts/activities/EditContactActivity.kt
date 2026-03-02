@@ -1647,7 +1647,8 @@ class EditContactActivity : ContactActivity() {
     private fun parseEvent(contentValues: ContentValues) {
         val type = contentValues.getAsInteger(CommonDataKinds.Event.DATA2) ?: DEFAULT_EVENT_TYPE
         val eventValue = contentValues.getAsString(CommonDataKinds.Event.DATA1) ?: return
-        val event = Event(eventValue, type)
+        val label = contentValues.getAsString(CommonDataKinds.Event.DATA3) ?: ""
+        val event = Event(eventValue, type, label)
         contact!!.events.add(event)
     }
 
