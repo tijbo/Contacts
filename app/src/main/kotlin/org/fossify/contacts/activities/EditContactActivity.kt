@@ -1364,9 +1364,10 @@ class EditContactActivity : ContactActivity() {
             val eventHolder = ItemEventBinding.bind(binding.contactEventsHolder.getChildAt(i))
             val event = eventHolder.contactEvent.value
             val eventType = getEventTypeId(eventHolder.contactEventType.value)
+            val eventLabel = if (eventType == CommonDataKinds.Event.TYPE_CUSTOM) eventHolder.contactEventType.value else ""
 
             if (event.isNotEmpty() && event != unknown) {
-                events.add(Event(eventHolder.contactEvent.tag.toString(), eventType))
+                events.add(Event(eventHolder.contactEvent.tag.toString(), eventType, eventLabel))
             }
         }
         return events
