@@ -530,7 +530,7 @@ class ViewContactActivity : ContactActivity() {
                 ItemViewEventBinding.inflate(layoutInflater, binding.contactEventsHolder, false).apply {
                     binding.contactEventsHolder.addView(root)
                     it.value.getDateTimeFromDateString(true, contactEvent)
-                    contactEventType.setText(getEventTextId(it.type))
+                    contactEventType.text = getEventText(it.type, it.label)
                     root.copyOnLongClick(it.value)
                 }
             }
